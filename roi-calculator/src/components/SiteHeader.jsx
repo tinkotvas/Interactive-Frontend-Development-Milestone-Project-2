@@ -14,5 +14,5 @@ export default function SiteHeader({logoName = "Logo"}) {
               <a href="" target="_blank">Support</a>
           </nav>
         </header>
-    )
+    );
 }
