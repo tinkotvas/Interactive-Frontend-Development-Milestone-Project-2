@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import SiteHeader from './components/SiteHeader';
+import BusinessROICalculator from './containers/BusinessROICalculator';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
 
           <section>
             <div>
-              Business ROI Calculator
+              <BusinessROICalculator/>
             </div>
 
             <div>
