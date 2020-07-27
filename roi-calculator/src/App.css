@@ -1,3 +1,38 @@
+h1, h2, h3 {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+input {
+    margin: 0.5rem;
+    width: 50%;
+}
+
+button {
+    align-self: center;
+    width: 50%;
+    height: 5rem;
+    background-color: #027d7d;
+    color: #ffffff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.body {
+    margin: 20px 7.5% 0 7.5%;
+    background-color: #fafafa;
+    color: #333333;
+}
+
 input.has-error {
     border: solid 1px red;
 }

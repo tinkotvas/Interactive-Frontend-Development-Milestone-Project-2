@@ -52,8 +52,8 @@ export default function BusinessROICalculator({setResult}) {
   const calculateResult = () => {
     setResult(
       businesses.map((business) => ({
-        name: business.name,
-        result: calculator.calculateBusiness(business.kpi)
+          name: business.name,
+          result: calculator.calculateBusiness(business.kpi)
       }))
     )
   }
@@ -62,7 +62,7 @@ export default function BusinessROICalculator({setResult}) {
     <div>
       <form onSubmit={addBusiness}>
         <label htmlFor="businessName">
-          Name
+          Business name
 
           <input
             type="text"
@@ -82,6 +82,7 @@ export default function BusinessROICalculator({setResult}) {
 
       {businesses.map((business, i) => (
         <form key={i} name={business.name} onSubmit={(e) => e.preventDefault()}>
+          <h3>{business.name}</h3>
           <label htmlFor="grossProfit">
             Gross profit
 
@@ -117,7 +118,7 @@ export default function BusinessROICalculator({setResult}) {
         </form>
       ))}
 
-      <button type="button">Calculate ROI</button>
+      <button type="button" onClick={calculateResult => setResult}>Calculate ROI</button>
     </div>
   )
 }
