@@ -62,8 +62,8 @@ export default function BusinessROICalculator({setResult}) {
     <div>
       <form onSubmit={addBusiness}>
         <label htmlFor="businessName">
-          Business name
-
+          Business name:
+          <br></br>
           <input
             type="text"
             id="businessName"

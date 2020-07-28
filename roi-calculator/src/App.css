@@ -1,53 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@900&display=swap");
 
-h1, h2, h3 {
-    display: flex;
-    font-family: 'Roboto', sans-serif;
+h1,
+h2,
+h3 {
+  display: flex;
+  font-family: "Roboto", sans-serif;
 }
 
 .orange-bold {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #E86B3E;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #e86b3e;
 }
 
 form {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 input {
-    margin: 0.5rem;
-    width: 50%;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #a09b9b;
+  width: 100%;
 }
 
 button {
-    align-self: center;
-    width: 50%;
-    height: 5rem;
-    background-color: #027d7d;
-    color: #ffffff;
+  width: 40%;
+  font-size: 0.9rem;
+  height: 3rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  background-color: #333333;
+  color: #ffffff;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .body {
-    line-height: 1.8;
-    font-family: 'Open Sans', sans-serif;
-    margin: 20px 7.5% 0 7.5%;
-    background-color: #fafafa;
-    color: #333333;
+  line-height: 1.8;
+  font-family: "Open Sans", sans-serif;
+  margin: 20px 7.5% 0 7.5%;
+  background-color: #fafafa;
+  color: #333333;
 }
 
 input.has-error {
-    border: solid 1px red;
+  border: solid 1px red;
 }
 
 .input-error-message {
-    display: block;
-    color: red;
+  display: block;
+  color: red;
 }
