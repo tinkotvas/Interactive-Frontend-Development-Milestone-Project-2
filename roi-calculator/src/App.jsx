@@ -36,23 +36,32 @@ function App() {
         <main>
           <section>
             <h1>The ROI calculator</h1>
-            <h2>Add a business</h2>
-            <h2>Add a campaign</h2>
-            <h2>Calculate your ROI</h2>
+            <p>
+              Define your KPI:s and calculate the results of your business or marketing investment. 
+            </p>
           </section>
 
           <section>
             <div>
+              <h2>Add a business</h2>
+              <p className="orange-bold">Add a business by naming it to start defining your KPI:s.</p>
               <BusinessROICalculator/>
             </div>
 
             <div>
+              <h2>Add a campaign</h2>
+              <p className="orange-bold">Add a campaign by naming it to start defining your KPI:s.</p>
               Campaign ROI Calculator
             </div>
           </section>  
 
           <section>
             <div>
+              <h2>Calculate your ROI</h2>
+              <p className="orange-bold">
+                Get your results based on the KPI:s you have added by clicking the button below. 
+                Just change the KPI:s or add more investments to calculate new results.
+              </p>
               {businessResults &&
             <ResultSection
               title="Business result"

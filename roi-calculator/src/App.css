@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:wght@900&display=swap');
+
 h1, h2, h3 {
     display: flex;
-    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.orange-bold {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #E86B3E;
 }
 
 form {
@@ -28,6 +36,8 @@ header {
 }
 
 .body {
+    line-height: 1.8;
+    font-family: 'Open Sans', sans-serif;
     margin: 20px 7.5% 0 7.5%;
     background-color: #fafafa;
     color: #333333;
