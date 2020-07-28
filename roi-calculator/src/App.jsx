@@ -8,28 +8,6 @@ import BusinessROICalculator from './containers/BusinessROICalculator';
 function App() {
   const [businessResults, setBusinessResults] = useState([])
 
-  console.log(businessResults)
-
-  const addResult = (old, set, results) => {
-    results.forEach((item) => {
-      const oldResult =
-        old.find((result) => result.name === item.name)
-
-      if (oldResult) {
-        const resultsWithoutItem =
-          old.filter((el) => el.name !== item.name)
-
-        set([...resultsWithoutItem, item])
-        return
-      }
-
-      set([...old, item])
-    })
-  }
-
-  const addBusinessResults = (results) =>
-    addResult(businessResults, setBusinessResults, results)
-
   return (
       <div>
         <SiteHeader logoName="ROI Calculator" />
@@ -46,7 +24,7 @@ function App() {
             <div>
               <h2>Add a business</h2>
               <p className="orange-bold">Add a business by naming it to start defining your KPI:s.</p>
-              <BusinessROICalculator/>
+              <BusinessROICalculator setResult={setBusinessResults} />
             </div>
 
             <div>
@@ -57,16 +35,17 @@ function App() {
           </section>  
 
           <section>
-            <div>
-              <h2>Calculate your ROI</h2>
-              <p className="orange-bold">
+            <h2>Calculate your ROI</h2>
+            <p className="orange-bold">
                 Get your results based on the KPI:s you have added by clicking the button below. 
                 Just change the KPI:s or add more investments to calculate new results.
-              </p>
-              {businessResults &&
-            <ResultSection
-              title="Business result"
-              results={businessResults} />}
+            </p>
+            
+            <div>
+              {businessResults.length > 0 &&
+                <ResultSection
+                  title="Business results"
+                  results={businessResults} />}
             </div>
 
             <div>
@@ -80,7 +59,7 @@ function App() {
               If you're in need of support? Do you want to feedback on any KPI:s or functionalities that you feel are missing?
               Contact us via the form below! 
             </p>
-            <SiteContact />
+            <SiteContact/>
           </section>
         </main>
 

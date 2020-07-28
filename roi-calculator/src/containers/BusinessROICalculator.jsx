@@ -1,11 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import calculator from '../calculator';
 
 export default function BusinessROICalculator({setResult}) {
   const [businesses, setBusinesses] = useState([])
   const [addBusinessError, setAddBusinessError] = useState()
+  const addNewForm = useRef()
 
   const getBusiness = (name) => businesses.find((item) => item.name === name)
+
+  const clear = () => {
+      addNewForm.current.reset()
+      setResult([])
+      setBusinesses([])
+  }
+
+  const calculateResult = (items) => {
+
+
+    const results = items.map((business) => ({
+      name: business.name,
+      result: calculator.calculateBusiness(business.kpi)
+    }))
+    setResult(results)  
+  }
 
   const addBusiness = (event) => {
     event.preventDefault()
@@ -25,12 +42,16 @@ export default function BusinessROICalculator({setResult}) {
         LTV: 0,
         newCustomersAcquired: 0,
       }
-    }  
+    }
     
-    setBusinesses([...businesses, newBusiness])
+    const newBusinesses = [...businesses, newBusiness]
+    
+    setBusinesses(newBusinesses)
+    calculateResult(newBusinesses)
+    addNewForm.current.reset()
   }
 
-  const onInputChanged = (event) => {
+  const onBusinessFormChanged = (event) => {
     const business = getBusiness(event.target.form.name)
     const field = event.target.name
     const value = Number(event.target.value)
@@ -47,22 +68,15 @@ export default function BusinessROICalculator({setResult}) {
     })
 
     setBusinesses(newBusinesses)
-  }
-
-  const calculateResult = () => {
-    setResult(
-      businesses.map((business) => ({
-          name: business.name,
-          result: calculator.calculateBusiness(business.kpi)
-      }))
-    )
+    calculateResult(newBusinesses)
   }
 
   return (
     <div>
-      <form onSubmit={addBusiness}>
+      <form ref={addNewForm} onSubmit={addBusiness}>
         <label htmlFor="businessName">
           Business name:
+          
           <br></br>
           <input
             type="text"
@@ -81,8 +95,14 @@ export default function BusinessROICalculator({setResult}) {
       </form>
 
       {businesses.map((business, i) => (
-        <form key={i} name={business.name} onSubmit={(e) => e.preventDefault()}>
+        <form 
+          key={i} 
+          name={business.name} 
+          onChange={onBusinessFormChanged}
+          onSubmit={(e) => e.preventDefault()}>
+
           <h3>{"Business: " + business.name}</h3>
+
           <label htmlFor="grossProfit">
             Gross profit:
 
@@ -90,8 +110,7 @@ export default function BusinessROICalculator({setResult}) {
               type="number"
               id="grossProfit"
               name="grossProfit"
-              value={business.kpi.grossProfit}
-              onChange={onInputChanged} />
+              defaultValue={business.kpi.grossProfit} />
           </label>
 
           <label htmlFor="netProfit">
@@ -101,8 +120,7 @@ export default function BusinessROICalculator({setResult}) {
               type="number"
               id="netProfit"
               name="netProfit"
-              value={business.kpi.netProfit}
-              onChange={onInputChanged} />
+              defaultValue={business.kpi.netProfit} />
           </label>
 
           <label htmlFor="marketingInvestment">
@@ -112,13 +130,12 @@ export default function BusinessROICalculator({setResult}) {
               type="number"
               id="marketingInvestment"
               name="marketingInvestment"
-              value={business.kpi.marketingInvestment}
-              onChange={onInputChanged} />
+              defaultValue={business.kpi.marketingInvestment} />
           </label>
         </form>
       ))}
 
-      <button type="button" onClick={calculateResult => setResult}>Calculate ROI</button>
+      <button type="button" onClick={clear}>Clear Businesses</button>
     </div>
   )
 }
