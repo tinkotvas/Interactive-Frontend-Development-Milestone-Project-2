@@ -19,7 +19,8 @@ form {
   justify-content: space-between;
 }
 
-input {
+input,
+textarea {
   border: 0;
   outline: 0;
   border-bottom: 1px solid #a09b9b;
@@ -28,8 +29,8 @@ input {
 
 button {
   width: 40%;
-  font-size: 0.9rem;
-  height: 3rem;
+  font-size: 1.2rem;
+  height: 4rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   background-color: #333333;
@@ -41,10 +42,19 @@ header {
   justify-content: space-between;
 }
 
+footer {
+  display: flex;
+  flex-flow: column;
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  background-color: #1b1b1b;
+  color: #FFFFFF;
+}
+
 .body {
   line-height: 1.8;
   font-family: "Open Sans", sans-serif;
-  margin: 20px 7.5% 0 7.5%;
+  margin: 0 7.5% 0 7.5%;
   background-color: #fafafa;
   color: #333333;
 }

@@ -82,9 +82,9 @@ export default function BusinessROICalculator({setResult}) {
 
       {businesses.map((business, i) => (
         <form key={i} name={business.name} onSubmit={(e) => e.preventDefault()}>
-          <h3>{business.name}</h3>
+          <h3>{"Business: " + business.name}</h3>
           <label htmlFor="grossProfit">
-            Gross profit
+            Gross profit:
 
             <input
               type="number"
@@ -95,7 +95,7 @@ export default function BusinessROICalculator({setResult}) {
           </label>
 
           <label htmlFor="netProfit">
-            Net profit
+            Net profit:
 
             <input
               type="number"
@@ -106,7 +106,7 @@ export default function BusinessROICalculator({setResult}) {
           </label>
 
           <label htmlFor="marketingInvestment">
-            Marketing investment
+            Marketing investment:
 
             <input
               type="number"
